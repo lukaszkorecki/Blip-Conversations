@@ -5,7 +5,6 @@ class ThreadsController < ApplicationController
     @collection = []
     @id = params[:id]
      resp = self.build @id
-    logger.info @collection
   end
     def build id
       logger.info  "JDI: " + id

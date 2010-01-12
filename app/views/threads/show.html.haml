@@ -4,11 +4,11 @@
     = @id
 
   %p
-    Status
+    - @collection.reverse!
     - @collection.each do |blip|
       %div.blip
         %p=parse_blip_body(blip['body'])
-
-        %strong= blip['user_path']
-
-        %em=  blip['created_at']
+        %p
+          %strong= blip['user_path']
+          %em=  blip['created_at']
+          %a{:href => 'http://blip.pl/s/'+blip['id'].to_s}
