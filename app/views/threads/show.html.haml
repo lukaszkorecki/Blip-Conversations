@@ -1,4 +1,14 @@
 .row
   %p 
-    I has
+    Conversation: 
     = @id
+
+  %p
+    Status
+    - @collection.each do |blip|
+      %div.blip
+        %p=parse_blip_body(blip['body'])
+
+        %strong= blip['user_path']
+
+        %em=  blip['created_at']
