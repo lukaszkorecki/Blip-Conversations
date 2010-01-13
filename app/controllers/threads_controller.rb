@@ -1,5 +1,5 @@
 class ThreadsController < ApplicationController
-# before_filter :respond_to_ajax
+before_filter :respond_to_ajax
   def index 
     unless params[:id].nil?
       redirect_to  '/threads/'+params[:id]
@@ -9,8 +9,11 @@ class ThreadsController < ApplicationController
     @collection = []
     @id = params[:id]
     resp = self.build @id
-    logger.info resp.to_s
-    render 'empty' if resp == false
+   #render 'empty' if resp == false
+    respond_to do |format| 
+      format.html
+      format.json { render :json => @collection.to_json}
+    end
   end
     def build id
       blip = BlipPlApi.new

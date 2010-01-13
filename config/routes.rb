@@ -43,4 +43,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'threads', :action => 'index'
   map.connect '/threads', :controller => 'threads', :action => 'index'
   map.connect '/threads/:id', :controller => 'threads', :action => 'show'
+  map.connect '/threads/:id.:format', :controller => 'threads', :action => 'show'
 end
