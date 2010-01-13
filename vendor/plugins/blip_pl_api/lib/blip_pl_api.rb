@@ -26,7 +26,12 @@ class BlipPlApi
     res = Net::HTTP.start(url.host, url.port) { |http|
       http.request req
     }
-    JSON.parse res.body
+    puts res.code.inspect
+    unless res.code == "200"
+      return false
+    else
+      return JSON.parse res.body
+    end
   end
   def get_status_by_id id
     self.get_request '/statuses/'+id.to_s

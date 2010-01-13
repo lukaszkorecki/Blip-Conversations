@@ -13,3 +13,5 @@
           %strong= blip['user_path']
           %em=  blip['created_at']
           %a{:href => 'http://blip.pl/s/'+blip['id'].to_s}
+  %p
+    %a(href="/threads/#{@id}") Permalink
