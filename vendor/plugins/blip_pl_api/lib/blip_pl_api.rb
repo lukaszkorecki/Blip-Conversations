@@ -3,10 +3,12 @@ require 'net/http'
 require 'uri'
 require 'json'
 class BlipPlApi
-  attr_reader :api_root, :headers,:include_string
+  attr_reader :api_root, :headers,:include_string, :query_params
   def initialize
     @api_root = 'http://api.blip.pl'
-    @include_string = '?include=users,users[avatar],recipients,recipients[avatar],pictures'
+    @query_params = {
+      :include =>'users,users[avatar],recipients,recipients[avatar],pictures'
+    }
     @headers = {
       'Accept'=>'application/json',
       'User-Agent' => 'Blip Conversations',
@@ -14,10 +16,14 @@ class BlipPlApi
     }
   end
   def get_request path
-    url = URI.parse(@api_root+path+@include_string)
-    req = Net::HTTP::Get.new(url.path)
+    url = URI.parse @api_root+path
+    req = Net::HTTP::Get.new url.path
+
+    req.set_form_data @query_params
+    req = Net::HTTP::Get.new(url.path+'?'+req.body)
+
     @headers.each {  |k,v| req.add_field k, v }
-    res = Net::HTTP.start(url.host, url.port) {|http|
+    res = Net::HTTP.start(url.host, url.port) { |http|
       http.request req
     }
     JSON.parse res.body

@@ -10,6 +10,7 @@ class ThreadsController < ApplicationController
       logger.info  "JDI: " + id
       blip = BlipPlApi.new
       status = blip.get_status_by_id id
+      logger.info status
       @collection.push status
       if /http:\/\/blip.pl\S+/i =~ status['body']
         id = status['body'].match(/http:\/\/blip.pl\S+/i)

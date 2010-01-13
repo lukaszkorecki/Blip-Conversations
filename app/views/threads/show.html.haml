@@ -9,6 +9,7 @@
       %div.blip
         %p=parse_blip_body(blip['body'])
         %p
+          %span= blip['id']
           %strong= blip['user_path']
           %em=  blip['created_at']
           %a{:href => 'http://blip.pl/s/'+blip['id'].to_s}
