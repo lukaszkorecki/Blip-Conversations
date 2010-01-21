@@ -1,0 +1,6 @@
+class Thread < ActiveRecord::Base
+include Builder
+  def find id
+    
+  end
+end
