@@ -5,13 +5,15 @@
 %div
   - i=0
   - @collection.reverse.each do |blip|
-    -i=i+1
-    %div{:class =>'row'+i.to_s }
+    %div{:class =>'level'+i.to_s+" blip" }
       %p=parse_blip_body(blip['body'])
-      %p
-        %span= blip['id']
-        %strong= blip['user_path']
+      %p.user
+        %img(src="http://blip.pl#{blip['user']['avatar']['url_30']}")
+        %a(href="http://#{blip['user']['login']}.blip.pl")= "^"+blip['user']['login']
         %em=  blip['created_at']
-        %a{:href => 'http://blip.pl/s/'+blip['id'].to_s}
+        %a(href="http://blip.pl/s/#{blip['id'].to_s}")= blip['id'].to_s
+    -i=i+1
   %p
-    %a(href="/threads/#{@id}") Permalink
+    %a.permalink(href="/threads/#{@id}" ) Linkuj
+    %a.permalink(href="/threads/#{@id}.json" ) Linkuj(json)
+

@@ -40,8 +40,9 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
-  map.connect '/', :controller => 'threads', :action => 'index'
+  map.root :controller => 'threads', :action => 'index'
   map.connect '/threads', :controller => 'threads', :action => 'index'
   map.connect '/threads/:id', :controller => 'threads', :action => 'show'
   map.connect '/threads/:id.:format', :controller => 'threads', :action => 'show'
+  
 end

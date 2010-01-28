@@ -9,4 +9,5 @@ db/*.sqlite
 *.DS_Store*
 *.eprj
 Thumbs.db
+#*
 

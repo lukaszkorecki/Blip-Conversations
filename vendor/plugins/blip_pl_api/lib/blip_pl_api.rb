@@ -5,7 +5,7 @@ class BlipPlApi
   attr_reader :api_root, :headers,:include_string, :query_params
   def initialize
     @api_root = 'http://api.blip.pl'
-    @query_params = '?include=users,users[avatar],recipients,recipients[avatar],pictures'
+    @query_params = '?include=user,user[avatar],recipient,recipient[avatar],pictures'
     @headers = {
       'Accept'=>'application/json',
       'User-Agent' => 'Blip Conversations',
@@ -13,12 +13,13 @@ class BlipPlApi
     }
   end
   def get_request path
-    url_str =@api_root+path+@query_params
-    conn = SimpleHttp.new(url_str)
+    parsed = URI.escape @api_root+path+@query_params
+    conn = SimpleHttp.new(parsed)
     @headers.each  { |k,v| conn.request_headers[k] = v }
-# TODO make it error resistant
+
     resp = conn.get
-    if conn.response_headers['status'] == 200
+
+    if conn.response_headers['status'] == '200'
       return JSON.parse resp 
     else
       return false
