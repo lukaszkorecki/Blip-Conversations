@@ -10,4 +10,4 @@ db/*.sqlite
 *.eprj
 Thumbs.db
 #*
-vendor/gems/*
+vendor/bundler_gems
