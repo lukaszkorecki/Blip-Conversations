@@ -27,7 +27,7 @@ function draw_stuff(thread, id) {
 
   var container = $('content');
 	container.update();
-  thread.each(function(blip, index){
+  thread.reverse().each(function(blip, index){
       try {
     var blomp = new Element('div', { "class" : 'blip level'+index});
     blomp.insert(new Element('p').update(parse_blip_body(blip.body)));
