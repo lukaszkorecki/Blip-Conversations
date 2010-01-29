@@ -6,7 +6,7 @@ class Rails::Boot
     extend_environment
         Rails::Initializer.run(:set_load_path)
   end
-  
+
   def extend_environment
     Rails::Initializer.class_eval do
       old_load = instance_method(:load_environment)

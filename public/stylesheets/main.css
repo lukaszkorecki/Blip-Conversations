@@ -1,0 +1,52 @@
+body {
+  font-family: helvetica;
+  font-size: 10pt; }
+
+#footer,
+#wrapper {
+  width: 50%;
+  border: 1px solid #555555;
+  padding: 10px;
+  margin: 20px auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px; }
+
+#footer {
+  color: #777; }
+
+.blip {
+  border: 1px solid #555555;
+  margin: 10px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px; }
+
+.level0 {
+  margin-left: 0px; }
+
+.level1 {
+  margin-left: 20px; }
+
+.level2 {
+  margin-left: 40px; }
+
+.level3 {
+  margin-left: 60px; }
+
+.level4 {
+  margin-left: 80px; }
+
+.level5 {
+  margin-left: 100px; }
+
+.level6 {
+  margin-left: 120px; }
+
+.level7 {
+  margin-left: 140px; }
+
+.level8 {
+  margin-left: 160px; }
+
+.level9 {
+  margin-left: 180px; }
