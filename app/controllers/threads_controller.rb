@@ -1,16 +1,16 @@
 class ThreadsController < ApplicationController
 before_filter :respond_to_ajax
-  def index 
+  def index
     unless params[:id].nil?
       redirect_to  '/threads/'+params[:id]
     end
   end
-  def show 
+  def show
     @id = params[:id]
     @collection = []
     resp = self.build params[:id]
     render 'empty' if resp == false
-    respond_to do |format| 
+    respond_to do |format|
       format.html {}
       format.json { render :json => @collection.to_json}
     end
@@ -25,6 +25,7 @@ before_filter :respond_to_ajax
     @collection.push status
     if /http:\/\/blip.pl\S+/i =~ status['body']
       id = status['body'].match(/http:\/\/blip.pl\S+/i)
+#      id = status['body'].scan(/http:\/\/blip.pl\S+/i)
       id =  id.to_s.split('/').last()
       self.build id
     end
