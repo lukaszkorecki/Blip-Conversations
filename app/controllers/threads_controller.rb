@@ -1,33 +1,22 @@
 class ThreadsController < ApplicationController
-before_filter :respond_to_ajax
   def index
     unless params[:id].nil?
       redirect_to  '/threads/'+params[:id]
     end
   end
   def show
-    @id = params[:id]
-    @collection = []
-    resp = self.build params[:id]
-    render 'empty' if resp == false
-    respond_to do |format|
-      format.html {}
-      format.json { render :json => @collection.to_json}
+    @blip_thread ||=  BlipThread.new(10)
+    @id = extract_id_from_url params[:id]
+    @blip_thread.build(params[:id])
+    @collection = @blip_thread.collection
+    render 'empty' if @collection.empty?
+    render('show', :layout => false ) if request.xhr?
+  end
+  private
+    def extract_id_from_url id
+      return id if id.to_i > 0
+      if id =~ /^http:\/\/blip.pl/
+        id.split("/").last
+      end
     end
-  end
-  def respond_to_ajax
-    request.format = :json if request.xhr?
-  end
-  def build id
-    blip = BlipPlApi.new
-    status = blip.get_status_by_id id
-    return false unless status
-    @collection.push status
-    if /http:\/\/blip.pl\S+/i =~ status['body']
-      id = status['body'].match(/http:\/\/blip.pl\S+/i)
-#      id = status['body'].scan(/http:\/\/blip.pl\S+/i)
-      id =  id.to_s.split('/').last()
-      self.build id
-    end
-  end
 end
