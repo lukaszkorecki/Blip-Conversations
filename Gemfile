@@ -1,3 +1,3 @@
-source :rubygems
-gem "haml", :group => "production"
-gem 'simplehttp', :group => "production"
+source :gemcutter
+gem "haml"
+gem 'simplehttp'
