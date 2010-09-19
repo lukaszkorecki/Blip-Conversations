@@ -11,6 +11,7 @@ GEM
       activesupport (= 2.3.9)
     activesupport (2.3.9)
     haml (3.0.13)
+    json_pure (1.4.3)
     rack (1.1.0)
     rails (2.3.9)
       actionmailer (= 2.3.9)
@@ -27,5 +28,6 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  json_pure
   rails (>= 2.3.9)
   simplehttp
