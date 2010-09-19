@@ -1,2 +1,2 @@
-bundle_path 'vendor/bundler_gems'
-gem 'simplehttp'        
+gem "haml"
+gem 'simplehttp'
