@@ -1,0 +1,11 @@
+GEM
+  specs:
+    haml (3.0.13)
+    simplehttp (0.1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml
+  simplehttp
