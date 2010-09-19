@@ -2,10 +2,10 @@
 %html
   %head
     %title
-      Blip Conversations
+      BlipThread
       = @id || ""
-    %script(src="/javascripts/prototype.js" type="text/javascript")
-    %script(src="/javascripts/index.js" type="text/javascript")
+    %script{:src => "/javascripts/prototype.js", :type => "text/javascript"}
+    %script{:src =>"/javascripts/index.js",  :type => "text/javascript"}
     %link(href="/stylesheets/main.css" rel="stylesheet" type="text/css")
   %body
     #wrapper
@@ -13,13 +13,9 @@
 
     #footer
       %p
-      Chcesz uzyc konwersacji w swojej blip-aplikacji? Dodaj
-      %code .json
-      na koniec wygenerowanego url'a
-
-      %p
         Code i takie tam:
-        %a(href="http://plugawy.blip.pl") ^plugawy
+        %a{:href => "http://lukaszkorecki.blip.pl"}^lukaszkorecki
+        %a{:href => "http://coffeesounds.com"} http://coffeesounds.com
         Hosting:
         %a(href="http://heroku.com") Heroku
 
