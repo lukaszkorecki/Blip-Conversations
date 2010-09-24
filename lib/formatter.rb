@@ -13,7 +13,12 @@ class Formatter
   def self.parse_links string
     findLinks = /http(s)*:\/\/[0-9a-zA-Z\,\;\_\/\.\-\&\=\?\%]+/
     res = string.gsub(findLinks) do |match|
-      '<a href="'+match+'">'+match+'</a>'
+      s = '<a href="'+match+'">'+match+'</a>'
+      if match =~ /blip.pl/
+        id = match.split("/").last
+        s += "&nbsp;(<a class='thread-link' href='/#{id}'>W</a>)"
+      end
+      s
     end
     return res || string
   end

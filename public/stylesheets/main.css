@@ -21,6 +21,8 @@ body {
   padding: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px; }
+  .blip .thread-link {
+    font-size: 80%; }
   .blip .user .info {
     font-size: 80%; }
 
