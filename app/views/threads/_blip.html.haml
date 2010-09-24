@@ -3,5 +3,6 @@
   %p.user
     %img{:src => "http://blip.pl#{blip['user']['avatar']['url_30']}"}
     %a{:href => "http://#{blip['user']['login']}.blip.pl"}= "^#{blip['user']['login']}"
-    %em=  blip['created_at']
-    %a{:href => "http://blip.pl/s/#{blip['id'].to_s}"}= blip['id'].to_s
+    %span.info
+      %em=  blip['created_at']
+      %a{:href => "http://blip.pl/s/#{blip['id'].to_s}"} Zobacz na blipie

@@ -21,6 +21,8 @@ body {
   padding: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px; }
+  .blip .user .info {
+    font-size: 80%; }
 
 .level0 {
   margin-left: 0px; }
