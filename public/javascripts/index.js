@@ -7,7 +7,6 @@ document.observe('dom:loaded', function(){
         new Ajax.Request( '/threads/'+id, {
           method : 'GET',
           onSuccess : function(response) {
-            console.dir(response);
               draw_stuff(response.responseText);
               $("loader").toggle();
           }
