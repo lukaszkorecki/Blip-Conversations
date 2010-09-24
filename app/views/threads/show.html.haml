@@ -1,9 +1,9 @@
 .row
   %p 
     Wątek: 
-    %a{ :href => "/threads/#{@id}"}= @id
+    %a{ :href => "/#{@id}"}= @id
 %div
   - @collection.reverse.each_with_index do |blip, index|
     = render :partial => "blip", :locals => { :i => index, :blip => blip}
   %p
-    %a.permalink{:href =>"/threads/#{@id}" } Linkuj
+    %a.permalink{:href =>"/#{@id}" } Linkuj
