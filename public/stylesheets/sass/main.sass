@@ -1,4 +1,4 @@
-!border_color = #555
+$border_color: #555555
 
 body
   font-family: helvetica
@@ -7,7 +7,7 @@ body
 #footer,
 #wrapper
   width: 50%
-  border= 1px solid !border_color
+  border: 1px solid $border_color
   padding: 10px
   margin: 20px auto
   -webkit-border-radius: 5px
@@ -15,16 +15,15 @@ body
 
 #footer
   font-size:8pt
-  color: #777
+  color: #777777
 
 .blip
-  border= 1px solid !border_color
+  border: 1px solid $border_color
   margin: 10px
   padding: 5px
   -webkit-border-radius: 5px
   -moz-border-radius: 5px
 
-
-@for !i from 0 to 10
-  .level#{!i}
-    margin-left = 20px * !i
+@for $i from 0 to 10
+  .level#{$i}
+    margin-left: 20px * $i
