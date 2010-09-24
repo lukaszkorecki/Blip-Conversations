@@ -3,9 +3,7 @@
     Wątek: 
     %a{ :href => "/threads/#{@id}"}= @id
 %div
-  - i=0
-  - @collection.reverse.each do |blip|
-    = render :partial => "blip", :locals => { :i => i, :blip => blip}
-    -i=i+1
+  - @collection.reverse.each_with_index do |blip, index|
+    = render :partial => "blip", :locals => { :i => index, :blip => blip}
   %p
     %a.permalink{:href =>"/threads/#{@id}" } Linkuj
