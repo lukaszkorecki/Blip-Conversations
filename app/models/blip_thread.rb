@@ -9,7 +9,6 @@ class BlipThread
   end
   def build id
     Rails.logger.info "DEPTH #{@depth} ID: #{id}"
-    Rails.logger.info id
     status = @blip.get_status_by_id id
     @collection = [] if not status and @collection.empty?
     @collection.push status
