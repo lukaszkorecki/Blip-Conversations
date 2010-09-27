@@ -1,13 +1,15 @@
 class Blip < ActiveRecord::Base
-  def store_or_retreive status
-    b = find_by_id(status["id"])
+  def self.store_or_retreive id
+    @blip ||= BlipPlApi.new
+    b = find_by_blip_id(id)
     unless b
+      status = @blip.get_status_by_id id
       create(
-        :blip_id => status["id"],
-        :body => status["body"],
-        :user => status["user"]["login"]
-      )
-      save!
+        :blip_id => id,
+        :json => status.to_json
+      ) if status
+      b=nil
     end
+    return b ? JSON.parse(b.json) : status
   end
 end
