@@ -11,3 +11,4 @@ db/*.sqlite
 Thumbs.db
 #*
 vendor/bundler_gems/*
+.bundle

@@ -1,5 +1,12 @@
-%div{:class =>'level'+i.to_s+" blip" }
-  %p=parse_blip_body(blip['body'])
+%div{:class => "level #{i.to_s} blip" }
+  %p.body
+    =parse_blip_body(blip['body'])
+  %div
+    - if blip["pictures"] and not blip["pictures"].empty?
+      - blip["pictures"].each do |pic|
+        %a{ :href => pic["url"] , :target => "_blank"}
+          %img{ :src => pic["url"].sub('.jpg', '_standard.jpg'), :alt => "sup?", :width => 96, :height => 96 }/
+      
   %p.user
     %img{:src => "http://blip.pl#{blip['user']['avatar']['url_30']}"}
     %a{:href => "http://#{blip['user']['login']}.blip.pl"}= "^#{blip['user']['login']}"
