@@ -4,7 +4,7 @@
   %div
     - if blip["pictures"] and not blip["pictures"].empty?
       - blip["pictures"].each do |pic|
-        %a{ :href => pic["url"] , :target => "_blank"}
+        %a{ :href => pic["url"] , :target => "_blank", :title => "Zobacz w nowym oknie"}
           %img{ :src => pic["url"].sub('.jpg', '_standard.jpg'), :alt => "sup?", :width => 96, :height => 96 }/
       
   %p.user
